@@ -6,8 +6,10 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
   
+    @Override
     public void start(Stage primaryStage) throws Exception {
-       
+        VeritabaniBaglantisi.sistemiBaslat(); 
+        
         Parent root = FXMLLoader.load(getClass().getResource("anaEkran.fxml"));
         primaryStage.setTitle("Giymatch Uygulaması");
         primaryStage.setScene(new Scene(root, 600, 400));
