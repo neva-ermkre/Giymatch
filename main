@@ -1,22 +1,25 @@
+package com.giymatch.view;
+import com.giymatch.model.VeritabaniBaglantisi;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Main extends Application { // burası javafx uygulaması alanı, pencere açılır
   
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        VeritabaniBaglantisi.sistemiBaslat(); 
+    public void start(Stage primaryStage) throws Exception { //ana uygulama penceresi primaryStace
+        VeritabaniBaglantisi.sistemiBaslat(); //veritabanını en başta kontrol eder
         
-        Parent root = FXMLLoader.load(getClass().getResource("anaEkran.fxml"));
-        primaryStage.setTitle("Giymatch Uygulaması");
-        primaryStage.setScene(new Scene(root, 600, 400));
-        primaryStage.show();
+        Parent root = FXMLLoader.load(getClass().getResource("girisEkrani.fxml"));//ana ekran tasarımını koda aktarır
+        primaryStage.setTitle("Giymatch Uygulaması"); //pencerenin en üstünde yazılan yazı
+        primaryStage.setScene(new Scene(root, 600, 400)); //pencerenin boyutunu belirler
+        primaryStage.show(); //pencereyi görünür hale getirir
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    public static void main(String[] args) { //program başlatıldı
+        launch(args); //javafx sistemini çalıştırır
     }
 }
