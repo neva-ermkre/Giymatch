@@ -35,7 +35,7 @@ public class VeritabaniBaglantisi {
         }
     }
 
-    // Parametreyi senin Controller ile uyumlu olması için Kullanici nesnesi yaptık
+   
     public static boolean kullaniciKaydet(Kullanici k) {
         String sql = "INSERT INTO kullanicilar(kullanici_adi, sifre, eposta) VALUES(?,?,?)";
         try (Connection conn = DriverManager.getConnection(URL);
@@ -49,13 +49,11 @@ public class VeritabaniBaglantisi {
             System.out.println(">> Yeni kullanıcı başarıyla kaydedildi: " + k.getKullaniciAdi());
             return true;
         } catch (SQLException e) {
-            // Eğer hata 'UNIQUE constraint' ise kullanıcı zaten vardır
             System.err.println("Kayıt Hatası: " + e.getMessage());
             return false;
         }
     }
 
-    // Metot ismini GirisController ile uyumlu olması için 'girisKontrol' yaptık
     public static boolean girisKontrol(String username, String password) {
         String sql = "SELECT * FROM kullanicilar WHERE kullanici_adi = ? AND sifre = ?";
         try (Connection conn = DriverManager.getConnection(URL);
@@ -89,7 +87,6 @@ public class VeritabaniBaglantisi {
         }
     }
     
-    // Tarza göre listeleme metodu olduğu gibi kalabilir, gayet iyi.
     public static List<Kiyafet> tarzaGoreListele(String secilenTarz) {
         List<Kiyafet> liste = new ArrayList<>();
         String sql = "SELECT * FROM kiyafetler WHERE tarz = ?";
